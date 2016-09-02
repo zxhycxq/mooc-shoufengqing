@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>手风琴www.chengxiangqian.com</title>
+    <link rel="stylesheet" href="">
+    <style>
+    body,ul,li,p,h3{margin:0;padding:0;}
+    ul,ol{list-style: none;}
+    .wrapper{width: 938px;height:128px;border:1px solid #d3d3d3;}
+    .wrapper li{width:156px;height:128px;float: left;overflow: hidden;}
+    .wrapper li a{width:156px;height:128px;position: relative;display:block;overflow:hidden;}
+    .wrapper img{position:absolute;bottom:0;right:-15px;height:72px;width:117px;}
+    .wrapper .info{position:absolute;top:0;left:0;width:136px;padding:4px 10px;}
+    .wrapper .info h3{font-size: 14px;font-weight: 700;}
+    .wrapper .info p{color: #868686;font-size: 12px;height:22px;line-height: 22px;width:136px;overflow:hidden;}
+    .wrapper .info .price{font-size: 14px;font-style: italic;color:#fa2a5d;height:35px;}
+    .wrapper .line{position:absolute;right:0;width:0;height:128px;border:1px dashed #cacaca;}
+ .wrapper ul *{transition: all linear .1s;}
+    .wrapper .mask{position:absolute;top:0;left:0;height:128px;width:156px;opacity: 0;background:#000;}
+    .wrapper:hover .mask{opacity: 0.15;}
+    .wrapper li.big, li.big a{width:314px;}
+    .wrapper li.big img{width:195px;height:120px;right:0;bottom:0;}
+    .wrapper li.big .info{width:290px;}
+    .wrapper li.big h3{font-size:18px;}
+    .wrapper li.big p{font-size:14px;width:166px;}
+    .wrapper li.big p.price{font-size:16px;padding-top:7px;}
+    .wrapper li.big a:hover .mask{opacity: 0;}
+    </style>
+</head>
+<body>
+    <div id="subject"  class="wrapper">
+        <ul>
+            <li class="big">
+                <a href="#link1">
+                    <img src="http://gtms01.alicdn.com/tps/i1/T1Lvt3Fv4kXXbA5QAK-195-120.jpg_Q90.jpg" alt="" />
+                    <div class="info">
+                        <h3 style="color:#f62368">权威</h3>
+                        <p>聚美优品周年庆</p>
+                        <p class="price"><strong>1</strong><i>折</i></p>
+                    </div>
+                    <i class="line"></i>
+                    <i class="mask"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="#link1">
+                    <img src="http://gtms01.alicdn.com/tps/i1/T1qxGLFsVbXXbA5QAK-195-120.jpg_Q90.jpg" alt="" />
+                    <div class="info">
+                        <h3 style="color:#f62368">权威</h3>
+                        <p>聚美优品周年庆</p>
+                        <p class="price"><strong>1</strong><i>折</i></p>
+                    </div>
+                    <i class="line"></i>
+                    <i class="mask"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="#link1">
+                    <img src="http://gtms02.alicdn.com/tps/i2/T1KOSNFxXaXXbA5QAK-195-120.jpg_Q90.jpg" alt="" />
+                    <div class="info">
+                        <h3 style="color:#f62368">权威</h3>
+                        <p>聚美优品周年庆</p>
+                        <p class="price"><strong>1</strong><i>折</i></p>
+                    </div>
+                    <i class="line"></i>
+                    <i class="mask"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#link1">
+                    <img src="http://gtms04.alicdn.com/tps/i4/T1CCeIFrVbXXbA5QAK-195-120.jpg_Q90.jpg" alt="" />
+                    <div class="info">
+                        <h3 style="color:#f62368">权威</h3>
+                        <p>聚美优品周年庆</p>
+                        <p class="price"><strong>1</strong><i>折</i></p>
+                    </div>
+                    <i class="line"></i>
+                    <i class="mask"></i>
+                </a>
+            </li>
+            <li>
+                <a href="#link1">
+                    <img src="http://gtms01.alicdn.com/tps/i1/T1jmKJFyJbXXbA5QAK-195-120.jpg_Q90.jpg" alt="" />
+                    <div class="info">
+                        <h3 style="color:#f62368">权威</h3>
+                        <p>聚美优品周年庆</p>
+                        <p class="price"><strong>1</strong><i>折</i></p>
+                    </div>
+                    <!-- <i class="line"></i> -->
+                    <i class="mask"></i>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <script>
+    function bind(el,eventType,callback){
+        if(typeof el.addEventListener ==='function'){
+            el.addEventListener(eventType,callback,false);
+        }else if( el.attachEvent ==='function'){
+            el.attachEvent('on'+eventType, callback);
+        }
+    }
+    function mouseoverHandler(e){
+          var target=e.target||e.srcElement;
+           var outer= document.getElementById('subject');
+           var list=outer.getElementsByTagName('li');
+            for (var i =0;i< list.length ; i++) {
+              // list[i].className=list[i].className.replace('big','');
+                  list[i].className='';
+            }
+
+            // target.className='big';
+            // target.tagName.toLowerCase()
+            while(target.tagName!='LI' && target.tagName!='BODY' ){
+                    target=target.parentNode;
+            }
+            target.className='big';
+    }
+        function init(){
+            var outer= document.getElementById('subject');
+            var list=outer.getElementsByTagName('li');
+            for (var i =0;i< list.length ; i++) {
+               bind(list[i],'mouseover',mouseoverHandler);
+            }
+        }
+        init();
+    </script>
+</body>
+</html>
